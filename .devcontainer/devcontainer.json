@@ -1,0 +1,67 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+
+// Copyright (C) 2021  Patrick McLean - psmware ltd
+
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+
+{
+	"name": "MKDocs Lab",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "mkdocs-lab",
+	"workspaceFolder": "/app",
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/zsh",
+		"python.pythonPath": "/usr/local/bin/python",
+		"python.linting.pylintEnabled": true,
+		"python.linting.pylintArgs": ["--load-plugins", "pylint_django", "--reports", "12", "--disable", "I0011"],
+		"python.linting.flake8Enabled": true,
+		"python.linting.flake8Args": ["--ignore=E24,W504", "--verbose"],
+		"files.associations": {
+			"**/*.html": "html",
+		},
+		"yaml.format.singleQuote": true,
+		// Python Linting settings
+		"python.linting.enabled": true,
+		"python.linting.lintOnSave": true,
+		"python.linting.mypyEnabled": true,
+		"python.formatting.provider": "autopep8",
+		// Python Execution settings
+		"python.languageServer": "Pylance",
+		"python.showStartPage": false,
+		// Python Docstring settings
+		"autoDocstring.docstringFormat": "sphinx",
+		"autoDocstring.generateDocstringOnEnter": true,
+		"autoDocstring.quoteStyle": "'''"
+	},
+
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"ms-python.python",
+		"hookyqr.beautify",
+		"davidanson.vscode-markdownlint",
+		"christian-kohler.path-intellisense",
+		"redhat.vscode-yaml",
+		"formulahendry.auto-rename-tag",
+		"p1c2u.docker-compose",
+		"henriiik.docker-linter",
+		"donjayamanne.githistory",
+		"eamodio.gitlens",
+		"dotjoshjohnson.xml",
+		"github.vscode-pull-request-github",
+		"ms-python.vscode-pylance",
+		"njpwerner.autodocstring",
+		"hbenl.vscode-test-explorer",
+		"littlefoxteam.vscode-python-test-adapter"
+	],
+	"remoteUser": "vscode"
+}

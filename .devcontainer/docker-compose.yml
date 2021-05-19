@@ -1,0 +1,33 @@
+#  SPDX-License-Identifier: AGPL-3.0-only
+
+#  Copyright (C) 2021  Patrick McLean - psmware ltd
+
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU Affero General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or
+#  (at your option) any later version.
+
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU Affero General Public License for more details.
+version: '3'
+
+services:
+  mkdocs-lab:
+    image: mkdocs-lab
+    container_name: mkdocs-lab
+    hostname: mkdocs-lab
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    user: vscode
+    volumes:
+      - ~/.ssh:/home/vscode/.ssh:ro
+      - ~/.gnupg:/home/vscode/.gnupg:cached
+      - ..:/app:cached
+    env_file:
+      - devcontainer.env
+    ports:
+      - 8000:8000
+    command: sleep infinity

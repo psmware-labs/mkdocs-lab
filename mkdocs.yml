@@ -1,0 +1,27 @@
+site_name: My Docs Lab
+
+theme:
+  name: material
+
+plugins:
+  - search
+  - mkdocstrings
+  - git-committers
+  - git-revision-date-localized
+  - minify:
+      minify_html: true
+      minify_js: false
+      htmlmin_opts:
+          remove_comments: true
+  - mermaid2
+  - with-pdf:
+      author: Pat McLean
+      copyright: psmware ltd
+      cover_subtitle: My little lab for testing mkdocs
+      toc_level: 2
+
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Code Reference:
+      - Workflow: workflow-reference.md
